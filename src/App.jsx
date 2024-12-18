@@ -5,7 +5,7 @@ function App() {
 	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
-		fetch('http://127.0.0.1:8000/users', {
+		fetch('https://chama-backend-kqu9.onrender.com/users', {
 			method: 'GET',
 		})
 			.then((response) => response.json())
@@ -15,11 +15,15 @@ function App() {
 
 	return (
 		<main className="p-8">
-			<ul role="list" class="divide-y divide-gray-100">
+			<ul role="list" className="divide-y divide-gray-100">
 				{users.map((user) => (
 					<UserDetails key={user.id} {...user} />
 				))}
 			</ul>
+			{/* <img
+				src={user.avatar}
+				alt=""
+			/> */}
 		</main>
 	);
 }
